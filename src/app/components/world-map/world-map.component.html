@@ -1,0 +1,13 @@
+<div fxFlex="100" class="map-full-card-content">
+  <agm-map #AgmMap [mapDraggable]="false" [minZoom]="2" [zoom]="zoom" (mapClick)="clickedMap($event)" (mapRightClick)="showContextMenu($event)" [fitBounds]="bounds">
+    <agm-marker *ngFor="let loc of latlng" [latitude]="loc.lat" [longitude]="loc.lng" (markerClick)="zoomMarkers(loc, infoWindow)">
+      <agm-info-window #infoWindow [hidden]="zoomState != 2">
+        <img [src]="'/static/images/' + loc.id + '.jpeg'" [id]="id">
+        <label [for]="id">{{loc.name}}</label>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+<div>
+<div *ngIf="contextmenu==true">
+    <app-context-menu [x]="contextmenuX" [y]="contextmenuY" (initMap)="initMapAgain()"></app-context-menu>
+</div>

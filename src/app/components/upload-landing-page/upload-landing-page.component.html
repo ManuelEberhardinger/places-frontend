@@ -1,0 +1,18 @@
+<div id="upload-container">
+  <image-upload
+  id="image-upload"
+  [hidden]="isUploaded"
+  [max]="1"
+  [url]="'http://localhost:8000/image'"
+  [buttonCaption]="''"
+  [dropBoxMessage]="''"
+  [extensions]="['jpg','png']"
+  (uploadFinished)="onUploadFinished($event)"
+  (uploadStateChanged)="onUploadStateChanged($event)"
+  [preview]="false"
+  [style]="customStyle"
+  class="customClass">
+  </image-upload>
+  <br>
+</div>
+<app-world-map *ngIf="isUploaded" [latlng]="latlng" [originalLatLng]="latlng"></app-world-map>

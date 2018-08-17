@@ -6,10 +6,11 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
+      "outDir": "/Users/manuel/PycharmProjects/similar-places/SimilarPlaces/first/static",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "static"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,7 +20,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/snazzy-info-window/dist/snazzy-info-window.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

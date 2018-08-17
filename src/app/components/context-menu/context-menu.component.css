@@ -1,0 +1,22 @@
+.contextmenu{
+    position: absolute;
+}
+
+a {
+  color: black;
+  display: block;
+  background-color: #DE7600;
+  border-color: #DE7600;
+}
+
+a:not(.last-button) {
+  border-bottom: none;
+}
+
+.first-button {
+  border-radius: 6px 6px 0px 0px;
+}
+
+.last-button {
+  border-radius: 0px 0px 6px 6px;
+}

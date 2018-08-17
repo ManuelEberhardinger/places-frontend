@@ -1,0 +1,4 @@
+<div class="btn-group full-width" role="group">
+    <button mat-button color="primary" *ngFor="let label of labels" class="btn btn-primary" (click)="showClick(label)">{{label}}</button>
+</div>
+<app-world-map [latlng]="latlng"></app-world-map>

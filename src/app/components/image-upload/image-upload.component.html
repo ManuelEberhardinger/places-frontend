@@ -1,0 +1,12 @@
+<br>
+<image-upload
+[max]="10"
+[url]="'http://itchypin.com:8000/image'"
+[buttonCaption]="'Select Images!'"
+[dropBoxMessage]="'Upload your Image here!'"
+[extensions]="['jpg','png']"
+(uploadFinished)="onUploadFinished($event)"
+[preview]="true">
+</image-upload>
+<br>
+<app-world-map [latlng]="latlng"></app-world-map>
