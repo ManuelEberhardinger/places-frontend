@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit, Input, ViewChild } from '@angular/cor
 import { GoogleMapsAPIWrapper, MapsAPILoader, AgmMap, LatLngBounds } from '@agm/core';
 import { Location } from '../../models/location';
 import { ZoomState } from '../../models/zoom-state';
+import { environment } from '../../../environments/environment';
 
 declare const google: any;
 
@@ -28,6 +29,8 @@ export class WorldMapComponent implements AfterViewInit {
   contextmenu = false;
   contextmenuX = 0;
   contextmenuY = 0;
+
+  environment = environment.production;
 
   @ViewChild('AgmMap') agmMap: any;
 
@@ -126,5 +129,19 @@ export class WorldMapComponent implements AfterViewInit {
   //disables the menu
   disableContextMenu() {
     this.contextmenu = false;
+  }
+
+  getTripadvisorUrl(searchTerm: string) {
+    let url = "https://www.tripadvisor.com/Search?q=";
+    searchTerm = searchTerm.replace(/ /g,"+");
+    url = url +searchTerm;
+    return url;
+  }
+
+  getAirbnbUrl(searchTerm: string) {
+    let url = "https://www.airbnb.de/s/";
+    searchTerm = searchTerm.replace(/ /g,"-");
+    url = url + searchTerm + "/";
+    return url;
   }
 }

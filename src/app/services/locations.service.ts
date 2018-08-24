@@ -23,12 +23,15 @@ export class LocationsService {
   }
 
   getCountryLocations() {
+    if(!environment.production) {
+      return this.http.get("/assets/country-locations.json");
+    }
     return this.http.get(this.countryLocationsUrl);
   }
 
   getAllLabels() {
     if(!environment.production) {
-      return Observable.of(["Forest", "Glacier", "Galaxy", "Jungle", "Beach", "Desert", "Mountains", "Sea"]);
+      return Observable.of(["Forest", "Glacier", "Galaxy", "Jungle", "Beach", "Desert", "Mountains", "Sea", "Ruins", "Watefalls"]);
     }
     return this.http.get(this.labelsUrl);
   }

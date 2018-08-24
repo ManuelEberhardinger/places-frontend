@@ -2,8 +2,13 @@
   <agm-map #AgmMap [mapDraggable]="false" [minZoom]="2" [zoom]="zoom" (mapClick)="clickedMap($event)" (mapRightClick)="showContextMenu($event)" [fitBounds]="bounds">
     <agm-marker *ngFor="let loc of latlng" [latitude]="loc.lat" [longitude]="loc.lng" (markerClick)="zoomMarkers(loc, infoWindow)">
       <agm-info-window #infoWindow [hidden]="zoomState != 2">
-        <img [src]="'/static/images/' + loc.id + '.jpeg'" [id]="id">
-        <label [for]="id">{{loc.name}}</label>
+        <h2 class="title">{{loc.name}}</h2>
+        <img *ngIf="environment" [src]="'/static/images/' + loc.id + '.jpeg'" [id]="id" class="image">
+        <img *ngIf="!environment" [src]="'/assets/images/eg__1bMX7d0.jpeg'" [id]="id" class="image">
+        <ul class="link-list">
+          <li><a [href]="getTripadvisorUrl(loc.name)" target="_blank">Go to TripAdvisor</a></li>
+          <li><a [href]="getAirbnbUrl(loc.name)" target="_blank">Go to Airbnb</a></li>
+        </ul>
       </agm-info-window>
     </agm-marker>
   </agm-map>

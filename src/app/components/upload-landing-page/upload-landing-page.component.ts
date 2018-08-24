@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { LocationsService } from '../../services/locations.service';
 import { Location } from '../../models/location';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-upload-landing-page',
@@ -80,6 +81,9 @@ export class UploadLandingPageComponent implements OnInit, AfterViewInit {
   }
 
   onUploadFinished($event) {
+    if(!environment.production) {
+      this._locationsService.getLocations("test").subscribe(locations => this.show(locations));
+    }
     let responseString = $event.serverResponse.response._body;
     let response = JSON.parse(responseString);
     console.log("Classified as '" + response['label'] + "'");
