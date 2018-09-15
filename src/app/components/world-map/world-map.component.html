@@ -1,5 +1,17 @@
 <div fxFlex="100" class="map-full-card-content">
-  <agm-map #AgmMap [mapDraggable]="false" [minZoom]="2" [zoom]="zoom" (mapClick)="clickedMap($event)" (mapRightClick)="showContextMenu($event)" [fitBounds]="bounds">
+  <agm-map #AgmMap [mapDraggable]="false" [minZoom]="2" [zoom]="zoom" (mapClick)="clickedMap($event)" (mapRightClick)="showContextMenu($event)" [fitBounds]="bounds" (mapReady)="mapReady($event)">
+    <a mat-button id="goBack" class="controls" href="/">
+      <mat-icon class="icon">
+      navigate_before
+    </mat-icon>
+      Upload another picture
+    </a>
+    <a mat-button id="showAll" class="controls" (click)="initMapAgain()" href="javascript:;">
+      <mat-icon class="icon">
+      zoom_out_map
+      </mat-icon>
+      Show all results
+    </a>
     <agm-marker *ngFor="let loc of latlng" [latitude]="loc.lat" [longitude]="loc.lng" (markerClick)="zoomMarkers(loc, infoWindow)">
       <agm-info-window #infoWindow [hidden]="zoomState != 2">
         <h2 class="title">{{loc.name}}</h2>
@@ -13,6 +25,6 @@
     </agm-marker>
   </agm-map>
 <div>
-<div *ngIf="contextmenu==true">
+<!-- <div *ngIf="contextmenu==true">
     <app-context-menu [x]="contextmenuX" [y]="contextmenuY" (initMap)="initMapAgain()"></app-context-menu>
-</div>
+</div> -->

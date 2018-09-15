@@ -27,13 +27,13 @@ export class UploadLandingPageComponent implements OnInit, AfterViewInit {
     selectButton: {
       "background-color": this.orange,
       "border": "none",
-      "font-size": "100px",
-      "color": "#fff",
+      "font-size": "7rem",
+      "color": "#E0EEE0",
       "vertical-align": "center",
       "box-shadow": "none",
       "position": "absolute",
-      "height": "100%",
-      "top": "40%",
+      "height": "15rem",
+      "top": "35%",
       "align-items": "center",
       "animation": "blinker 3s linear infinite"
     },
@@ -41,8 +41,8 @@ export class UploadLandingPageComponent implements OnInit, AfterViewInit {
     },
     layout: {
       "background-color": this.orange,
-      "text-align": "center",
-      "height": this.height
+      "text-align": "center"
+      //"height": this.height
     },
     previewPanel: {
     }
@@ -59,7 +59,7 @@ export class UploadLandingPageComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.height = window.innerHeight;
     this.div = document.getElementById("upload-container");
-    this.div.style.height = this.height + "px";
+    this.div.style.height = (this.height / 1.7 ) + "px";
 
     var parent = <HTMLElement>document.getElementsByClassName("img-ul-button").item(0);
     var span = parent.getElementsByTagName("span").item(0);
@@ -68,14 +68,15 @@ export class UploadLandingPageComponent implements OnInit, AfterViewInit {
     icon.classList.add("fa-arrow-alt-circle-up");
     icon.style.display = "block";
     parent.style.alignItems = "center";
-    parent.style.width = (window.innerWidth / 2) + "px";
+    parent.style.width = (window.innerWidth / 32) + "rem";
     parent.style.left = "25%";
     parent.replaceChild(icon, span);
 
     setTimeout(function() {
       this.label = document.createElement("span");
-      this.label.style.fontSize = "50px";
-      this.label.innerText = "Show me your picture...";
+      this.label.style.fontSize = "2rem";
+      this.label.style.paddingTop = "0px";
+      this.label.innerText = "start your trip with a picture!";
       parent.appendChild(this.label);
     }, 2000)
   }

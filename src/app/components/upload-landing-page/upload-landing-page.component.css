@@ -3,3 +3,46 @@
     opacity: 0;
   }
 }
+
+/*
+rot: #CD3333
+honeydew2: #E0EEE0
+
+
+ */
+
+.title {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  color: #E0EEE0;
+  font-size: 3rem;
+  border-bottom: 2px solid #E0EEE0;
+  width: 95%;
+  padding-left: 0.75rem;
+}
+
+.image {
+  color: #E0EEE0;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  font-size: 2.75rem;
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+.bg-img {
+  background: #DE7600;
+  background-image: url('https://images.unsplash.com/photo-1474452926969-af7bfdb9ca39?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c2a524b6cfa7d7b70588c792600e2b5');
+  width: 101%;
+  height: 20rem;
+  background-position: bottom right;
+  /* Make the background image cover the area of the <div>, and clip the excess */
+  background-size: cover;
+  /*border-radius: 0.5rem;*/
+  margin-left: -1rem;
+  position: absolute;
+  bottom: -3rem;
+  left: 0;
+}

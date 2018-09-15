@@ -16,6 +16,8 @@ export class WorldMapComponent implements AfterViewInit {
   @Input() latlng: Location[];
   @Input() originalLatLng: Location[];
 
+  map: any;
+
   zoomState: ZoomState = ZoomState.WORLD;
 
   zoom: number = 2;
@@ -38,6 +40,12 @@ export class WorldMapComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.initMap();
+  }
+
+  mapReady(event: any) {
+    this.map = event;
+    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(document.getElementById('goBack'));
+    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(document.getElementById('showAll'));
   }
 
   zoomMarkers(loc: Location, infoWindow) {
@@ -133,14 +141,14 @@ export class WorldMapComponent implements AfterViewInit {
 
   getTripadvisorUrl(searchTerm: string) {
     let url = "https://www.tripadvisor.com/Search?q=";
-    searchTerm = searchTerm.replace(/ /g,"+");
-    url = url +searchTerm;
+    searchTerm = searchTerm.replace(/ /g, "+");
+    url = url + searchTerm;
     return url;
   }
 
   getAirbnbUrl(searchTerm: string) {
     let url = "https://www.airbnb.de/s/";
-    searchTerm = searchTerm.replace(/ /g,"-");
+    searchTerm = searchTerm.replace(/ /g, "-");
     url = url + searchTerm + "/";
     return url;
   }
